@@ -28,6 +28,30 @@
             background-color: #0056b3;
         }
 
+        form {
+            margin-bottom: 20px;
+        }
+
+        input[type="text"] {
+            padding: 8px;
+            width: 250px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        input[type="submit"] {
+            padding: 8px 12px;
+            border: none;
+            background-color: #28a745;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #218838;
+        }
+
         ul {
             list-style-type: none;
             padding: 0;
@@ -75,6 +99,11 @@
 
     <h1>Lista de películas</h1>
 
+    <form method="get">
+        <input type="text" name="q" placeholder="Buscar por título..." value="{{ request.GET.q }}">
+        <input type="submit" value="Buscar">
+    </form>
+
     <a href="{% url 'add_movie' %}" class="btn">Agregar nueva película</a>
 
     <ul>
@@ -86,6 +115,8 @@
                 <strong>{{ movie.title }}</strong> ({{ movie.year }}) - {{ movie.duration }} min
                 <p>{{ movie.description }}</p>
             </li>
+        {% empty %}
+            <li>No se encontraron películas con ese nombre.</li>
         {% endfor %}
     </ul>
 </body>
