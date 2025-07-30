@@ -9,7 +9,7 @@ def movie_list(request):
 
 def add_movie(request):
     if request.method == 'POST':
-        form = MovieForm(request.POST)
+        form = MovieForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
             messages.success(request, 'Película agregada exitosamente.')
@@ -17,3 +17,6 @@ def add_movie(request):
     else:
         form = MovieForm()
     return render(request, 'movie/add_movie.html', {'form': form})
+
+def about(request):
+    return render(request, 'movie/about.html')
