@@ -52,9 +52,27 @@
             margin-top: 5px;
             color: #555;
         }
+
+        .datos-estudiante {
+            margin-bottom: 30px;
+            background-color: #e9ecef;
+            padding: 15px;
+            border-radius: 5px;
+        }
+
+        .datos-estudiante strong {
+            display: block;
+            color: #222;
+        }
     </style>
 </head>
 <body>
+
+    <div class="datos-estudiante">
+        <strong>Nombre:</strong> Mariana Hincapié Henao  
+        <strong>ID EPIK:</strong> 1000316142
+    </div>
+
     <h1>Lista de películas</h1>
 
     <a href="{% url 'add_movie' %}" class="btn">Agregar nueva película</a>
